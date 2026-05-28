@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "3d-web-experience": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "skillPath": "skills/3d-web-experience/SKILL.md",
+      "computedHash": "87c4b32078381ee1e6df164ddd5c28dd67fc7552431a7415626e63b8cf74b11a"
+    },
+    "ai-image-generation": {
+      "source": "skills-shell/skills",
+      "sourceType": "github",
+      "skillPath": "tools/image/ai-image-generation/SKILL.md",
+      "computedHash": "cf0b7e45b1e915e0782b3ec9734c0f1f580f08b88b5ccd2a80e7a582123eaa8f"
+    },
+    "animations": {
+      "source": "phaserjs/phaser",
+      "sourceType": "github",
+      "skillPath": "skills/animations/SKILL.md",
+      "computedHash": "342f4448eed4b25a890793b7f14cad8b3393a16a915cf967edbcd6d2fd9d20d7"
+    },
+    "figma": {
+      "source": "openai/skills",
+      "sourceType": "github",
+      "skillPath": "skills/.curated/figma/SKILL.md",
+      "computedHash": "0139fbd3f7afd9d81dbf128e3ad912daf21047bcd7f2be0f6997f718b48c0643"
+    },
+    "frontend-design": {
+      "source": "nexu-io/open-design",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "7fb344d018367dd93ed70f2cd6c906535ea437ed90d69160b55d7bee98b4ff85"
+    }
+  }
+}

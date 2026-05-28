@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover the next gen Tiago.ev in our Digital Showroom. Scroll to explore exterior details, customize trims, select paint colors, view the premium dual-tone cabin, and book online.">
+    <title>The Next Gen Tiago.ev | Digital Showroom & Experience</title>
+    <!-- Resource Preloads: critical assets fetched immediately -->
+    <link rel="preload" href="public/images/herosection/ezgif-frame-001.jpg" as="image">
+    <link rel="preload" href="public/images/herosection/ezgif-frame-002.jpg" as="image">
+    <link rel="preload" href="public/images/herosection/ezgif-frame-003.jpg" as="image">
+    <link rel="preload" href="assets/Grey.png" as="image">
+    <link rel="preload" href="assets/tiago_ev_interior_luxe.png" as="image">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme color-pure-grey">
+
+    <!-- Header Navigation (Apple-Style) -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="brand-text">TIAGO<span class="ev-badge">.ev</span></span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#hero-scroll">Design Story</a></li>
+                    <li><a href="#showroom-section">Digital Showroom</a></li>
+                    <li><a href="#interior">Cabin comfort</a></li>
+                    <li><a href="#tech-comfort">Technology</a></li>
+                    <li><a href="#safety">Safety</a></li>
+                    <li><a href="#performance">HV Specs</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="https://ev.tatamotors.com/tiago/ev.html" class="btn btn-primary btn-book-now">Book Now</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Section 1: Scroll-Driven Hero Animation Section (500vh) -->
+    <section class="hero-scroll-container" id="hero-scroll">
+        <div class="hero-sticky-wrapper">
+            <div class="hero-canvas-container">
+                <div class="canvas-glow"></div>
+                <!-- Hero canvas loading placeholder -->
+                <div class="hero-canvas-loader" id="showroom-loader">
+                    <div class="hero-loader-car">
+                        <svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 28 Q15 18 25 16 L38 14 Q45 10 52 14 L68 16 Q74 18 72 28 Z" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+                            <circle cx="22" cy="30" r="4" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+                            <circle cx="58" cy="30" r="4" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="hero-loader-bar"><div class="hero-loader-fill"></div></div>
+                    <span class="hero-loader-text">Loading Tiago.ev experience…</span>
+                </div>
+                <canvas id="hero-canvas"></canvas>
+            </div>
+
+            <!-- Scroll Overlay Texts (Apple-Style Parallax Slides) -->
+            <div class="scroll-text-container">
+                <!-- Slide 1: Main Title -->
+                <div class="scroll-slide active" id="slide-1">
+                    <span class="slide-tag font-wow">Introducing</span>
+                    <h1 class="slide-title">The next gen Tiago.ev - <span class="text-wow">just WOW.</span></h1>
+                    <p class="slide-subtitle">With its bold, contemporary design, the Next Gen Tiago.ev turns everyday
+                        presence on the road into a just wow moment.</p>
+                    <div class="scroll-prompt">
+                        <span class="prompt-text">Scroll to explore</span>
+                        <div class="mouse-icon">
+                            <div class="wheel"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Headlamps Feature -->
+                <div class="scroll-slide" id="slide-2">
+                    <span class="slide-num">01 / EXTERIOR</span>
+                    <h2 class="slide-title">Lux Beam LED Headlamps</h2>
+                    <p class="slide-subtitle">Light up every drive with focused projection visibility and signature
+                        daytime running lights (DRLs) that command attention.</p>
+                </div>
+
+                <!-- Slide 3: Tail Lamps Feature -->
+                <div class="scroll-slide" id="slide-3">
+                    <span class="slide-num">02 / STYLE</span>
+                    <h2 class="slide-title">Connected Halo Lightbar</h2>
+                    <p class="slide-subtitle">Halo lightbar connected tail lamps add to the distinctive, signature rear
+                        profile, leaving a modern visual imprint behind you.</p>
+                </div>
+
+                <!-- Slide 4: Wheels Feature -->
+                <div class="scroll-slide" id="slide-4">
+                    <span class="slide-num">03 / CONTRAST</span>
+                    <h2 class="slide-title">R14 Hyperstyle Wheels</h2>
+                    <p class="slide-subtitle">Sporty R14 hyperstyle wheels paired with a dual-tone black roof provide a
+                        sleek athletic silhouette and bold contrast.</p>
+                </div>
+
+                <!-- Slide 5: Cladding & GPS Feature -->
+                <div class="scroll-slide" id="slide-5">
+                    <span class="slide-num">04 / PROFILE</span>
+                    <h2 class="slide-title">Rugged Stance</h2>
+                    <p class="slide-subtitle">Sleek GPS integrated Shark Fin Antenna on the roofline, balanced by rugged
+                        Cosmo Grain textured wheel arch claddings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Interactive Digital Showroom & Price (Horizontal Split Panel) -->
+    <section class="section showroom-section" id="showroom-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Digital Workshop</span>
+                <h2 class="section-title">Interactive <span class="text-wow">Showroom</span></h2>
+                <p class="section-desc">Customize your Tiago.ev. Select your range, pick your paint tone, explore the
+                    interior cabin, and calculate your pricing details.</p>
+            </div>
+
+            <div class="showroom-wrapper">
+                <!-- Left Panel: Interactive Visualizer -->
+                <div class="showroom-visual-panel">
+                    <div class="visualizer-toggle-group">
+                        <button class="toggle-view-btn active" data-view="exterior">Exterior Design</button>
+                        <button class="toggle-view-btn" data-view="interior">Cabin Interior</button>
+                    </div>
+
+                    <!-- Exterior view container -->
+                    <div class="showroom-media-container active" id="view-exterior-container">
+                        <img src="assets/Grey.png" alt="Tiago.ev Exterior Design" id="showroom-exterior-img"
+                            decoding="async">
+                    </div>
+
+                    <!-- Cabin interior view container -->
+                    <div class="showroom-media-container" id="view-interior-container">
+                        <img src="assets/tiago_ev_interior_luxe.png" alt="Tiago.ev Premium Cabin Layout"
+                            id="showroom-interior-img" decoding="async"
+                            style="filter:saturate(0) brightness(0.88)">
+                    </div>
+                </div>
+
+                <!-- Right Panel: Customizer Panel -->
+                <div class="showroom-config-panel">
+                    <!-- Customizer Header (Matches Screenshot) -->
+                    <div class="customizer-header">
+                        <h3 class="customizer-title" id="customizer-variant-title">Tiago.ev Smart 19</h3>
+                        <div class="customizer-price" id="customizer-variant-price">₹6.99 Lakh</div>
+                        <div class="customizer-tabs">
+                            <span class="tab-arrow">&lt;</span>
+                            <button type="button" class="customizer-tab active" data-tab="design">Design</button>
+                            <button type="button" class="customizer-tab" data-tab="features">Features</button>
+                            <button type="button" class="customizer-tab" data-tab="accessories">Accessories</button>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Design (Active) -->
+                    <div class="customizer-tab-content active" id="tab-content-design">
+                        <!-- Step 1: Variant Select -->
+                        <div class="config-step">
+                            <h4 class="config-step-title">1. Choose Drivetrain & Variant</h4>
+                            <div class="trim-selectors-grid">
+                                <!-- Trim 1 -->
+                                <label class="trim-card-label">
+                                    <input type="radio" name="trim-select" value="smart" checked>
+                                    <div class="trim-card">
+                                        <div class="trim-meta">
+                                            <span class="trim-name">Smart 19</span>
+                                            <span class="trim-battery">19.2 kWh</span>
+                                        </div>
+                                        <div class="trim-price-label">Starts from <strong class="text-wow">₹6.99 L*</strong></div>
+                                    </div>
+                                </label>
+                                <!-- Trim 2 -->
+                                <label class="trim-card-label">
+                                    <input type="radio" name="trim-select" value="pure-19">
+                                    <div class="trim-card">
+                                        <div class="trim-meta">
+                                            <span class="trim-name">Pure+ 19</span>
+                                            <span class="trim-battery">19.2 kWh</span>
+                                        </div>
+                                        <div class="trim-price-label">Starts from <strong class="text-wow">₹8.49 L*</strong></div>
+                                    </div>
+                                </label>
+                                <!-- Trim 3 -->
+                                <label class="trim-card-label">
+                                    <input type="radio" name="trim-select" value="pure-24">
+                                    <div class="trim-card">
+                                        <div class="trim-meta">
+                                            <span class="trim-name">Pure+ 24</span>
+                                            <span class="trim-battery">24.0 kWh</span>
+                                        </div>
+                                        <div class="trim-price-label">Starts from <strong class="text-wow">₹9.49 L*</strong></div>
+                                    </div>
+                                </label>
+                                <!-- Trim 4 -->
+                                <label class="trim-card-label">
+                                    <input type="radio" name="trim-select" value="creative">
+                                    <div class="trim-card">
+                                        <div class="trim-meta">
+                                            <span class="trim-name">Creative+ 24</span>
+                                            <span class="trim-battery">24.0 kWh</span>
+                                        </div>
+                                        <div class="trim-price-label">Starts from <strong class="text-wow">₹9.99 L*</strong></div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Vibe Paint Select -->
+                        <div class="config-step">
+                            <h4 class="config-step-title">2. Choose Color Vibe</h4>
+                            
+                            <div class="tone-dropdown-container">
+                                <div class="tone-dropdown-trigger">
+                                    <span class="tone-color-icon" style="background: linear-gradient(135deg, #d2e5dd 50%, #1a1e24 50%);"></span>
+                                    <span class="tone-text">Tone</span>
+                                    <svg class="dropdown-caret" viewBox="0 0 24 24" width="16" height="16">
+                                        <path fill="currentColor" d="M7 10l5 5 5-5H7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="vertical-color-list">
+                                <button type="button" class="showroom-chip showroom-color-card" data-color="daytona-grey">
+                                    <span class="color-card-chip" style="background: linear-gradient(135deg, #3c3f41 50%, #1a1e24 50%);"></span>
+                                    <span class="color-card-name">Daytona Grey with Dual Tone</span>
+                                </button>
+                                <button type="button" class="showroom-chip showroom-color-card" data-color="dehradun-dew">
+                                    <span class="color-card-chip" style="background: linear-gradient(135deg, #d2e5dd 50%, #1a1e24 50%);"></span>
+                                    <span class="color-card-name">Dehradun Dew with Dual Tone</span>
+                                </button>
+                                <button type="button" class="showroom-chip showroom-color-card active" data-color="pure-grey">
+                                    <span class="color-card-chip" style="background: linear-gradient(135deg, #5e6368 50%, #1a1e24 50%);"></span>
+                                    <span class="color-card-name">Pure Grey with Dual Tone</span>
+                                </button>
+                                <button type="button" class="showroom-chip showroom-color-card" data-color="pangong-pulse">
+                                    <span class="color-card-chip" style="background: linear-gradient(135deg, #0c3c52 50%, #1a1e24 50%);"></span>
+                                    <span class="color-card-name">Pangong Pulse with Dual Tone</span>
+                                </button>
+                                <button type="button" class="showroom-chip showroom-color-card" data-color="pristine-white">
+                                    <span class="color-card-chip" style="background: linear-gradient(135deg, #ffffff 50%, #1a1e24 50%);"></span>
+                                    <span class="color-card-name">Pristine White with Dual Tone</span>
+                                </button>
+                                <button type="button" class="showroom-chip showroom-color-card" data-color="sobo-surge">
+                                    <span class="color-card-chip" style="background: linear-gradient(135deg, #00a2ac 50%, #1a1e24 50%);"></span>
+                                    <span class="color-card-name">Sobo Surge with Dual Tone</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Features (Hidden by default) -->
+                    <div class="customizer-tab-content" id="tab-content-features">
+                        <!-- Step 3: Drivetrain performance stats -->
+                        <div class="config-step">
+                            <h4 class="config-step-title">Performance Estimates</h4>
+                            <div class="showroom-stats">
+                                <div class="showroom-stat-bar">
+                                    <div class="bar-info">
+                                        <span>Certified Range (ARAI)</span>
+                                        <strong id="show-stat-range">285 km</strong>
+                                    </div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill" id="fill-range" style="width: 100%;"></div>
+                                    </div>
+                                </div>
+                                <div class="showroom-stat-bar">
+                                    <div class="bar-info">
+                                        <span>Real World Range</span>
+                                        <strong id="show-stat-real-range">205-215 km</strong>
+                                    </div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill" id="fill-real-range" style="width: 100%;"></div>
+                                    </div>
+                                </div>
+                                <div class="showroom-stat-bar">
+                                    <div class="bar-info">
+                                        <span>Max Motor Power</span>
+                                        <strong id="show-stat-power">55 kW (74 HP)</strong>
+                                    </div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill" id="fill-power" style="width: 100%;"></div>
+                                    </div>
+                                </div>
+                                <div class="showroom-stat-bar">
+                                    <div class="bar-info">
+                                        <span>Max Torque</span>
+                                        <strong id="show-stat-torque">114 Nm</strong>
+                                    </div>
+                                    <div class="bar-bg">
+                                        <div class="bar-fill" id="fill-torque" style="width: 100%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Variant Features List -->
+                        <div class="config-step">
+                            <h4 class="config-step-title">Standard Trim Features</h4>
+                            <div class="features-list-wrapper" id="features-list-container">
+                                <!-- Populated dynamically by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content: Accessories (Hidden by default) -->
+                    <div class="customizer-tab-content" id="tab-content-accessories">
+                        <div class="config-step">
+                            <h4 class="config-step-title">Official Accessories</h4>
+                            <div class="accessories-grid">
+                                <div class="accessory-item">
+                                    <div class="accessory-info">
+                                        <span class="accessory-name">7D Luxury Cabin Mats</span>
+                                        <span class="accessory-price">₹4,500</span>
+                                    </div>
+                                    <button type="button" class="btn btn-outline btn-sm btn-add-accessory">Add</button>
+                                </div>
+                                <div class="accessory-item">
+                                    <div class="accessory-info">
+                                        <span class="accessory-name">Premium Body Cover (Matte)</span>
+                                        <span class="accessory-price">₹2,800</span>
+                                    </div>
+                                    <button type="button" class="btn btn-outline btn-sm btn-add-accessory">Add</button>
+                                </div>
+                                <div class="accessory-item">
+                                    <div class="accessory-info">
+                                        <span class="accessory-name">Mud Flaps Profile Kit</span>
+                                        <span class="accessory-price">₹950</span>
+                                    </div>
+                                    <button type="button" class="btn btn-outline btn-sm btn-add-accessory">Add</button>
+                                </div>
+                                <div class="accessory-item">
+                                    <div class="accessory-info">
+                                        <span class="accessory-name">Illuminated Scuff Plates</span>
+                                        <span class="accessory-price">₹3,200</span>
+                                    </div>
+                                    <button type="button" class="btn btn-outline btn-sm btn-add-accessory">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Price & Lead CTA (Always visible at the bottom) -->
+                    <div class="config-step showroom-pricing-summary">
+                        <div class="price-breakdown">
+                            <span class="price-label">Configured Ex-Showroom Price*</span>
+                            <h3 class="price-value" id="showroom-price-value">₹6,99,000</h3>
+                        </div>
+                        <a href="https://ev.tatamotors.com/tiago/ev.html"
+                            class="btn btn-primary btn-block btn-config-book">Book Configured EV</a>
+                        <p class="showroom-terms">*Price is indicative of estimated ex-showroom pricing. Standard terms
+                            and conditions apply. Accessories and colors subject to availability.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2.5: Savings/Investment Planner -->
+    <section class="section savings-section" id="savings-planner">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Finance Planner</span>
+                <h2 class="section-title">Your WOW <span class="text-wow">Savings Plan</span></h2>
+                <p class="section-desc">Calculate how quickly you can own the Next Gen Tiago.ev. Set your daily savings
+                    goal and see the timeline to bring home your electric dream.</p>
+            </div>
+
+            <div class="savings-card scroll-reveal">
+                <div class="savings-split-grid">
+                    <!-- Left Column: Inputs -->
+                    <div class="savings-inputs-panel">
+                        <div class="planner-group">
+                            <label for="savings-target-price">Target EV Price (₹)</label>
+                            <div class="target-price-input-wrapper">
+                                <span class="currency-symbol">₹</span>
+                                <input type="number" id="savings-target-price" value="699000" min="100000" step="10000"
+                                    class="planner-number-input">
+                            </div>
+                            <span class="planner-help-text">Auto-syncs with your custom showroom trim selection.</span>
+                        </div>
+
+                        <div class="planner-group">
+                            <div class="slider-label-row">
+                                <label for="daily-savings-range">Daily Savings Goal</label>
+                                <div class="savings-value-display">
+                                    <span class="currency-symbol">₹</span>
+                                    <input type="number" id="daily-savings-input" value="500" min="10" max="100000"
+                                        class="planner-value-input">
+                                </div>
+                            </div>
+                            <input type="range" id="daily-savings-range" min="100" max="5000" value="500" step="50"
+                                class="planner-range-slider">
+                            <div class="slider-ticks">
+                                <span>₹100/day</span>
+                                <span>₹2,500/day</span>
+                                <span>₹5,000/day</span>
+                            </div>
+                        </div>
+
+                        <!-- Presets for fast selection -->
+                        <div class="planner-presets">
+                            <span class="presets-label">Quick Goal Presets:</span>
+                            <div class="presets-buttons">
+                                <button class="btn btn-outline btn-preset" data-value="200">₹200/day</button>
+                                <button class="btn btn-outline btn-preset active" data-value="500">₹500/day</button>
+                                <button class="btn btn-outline btn-preset" data-value="1000">₹1,000/day</button>
+                                <button class="btn btn-outline btn-preset" data-value="2000">₹2,000/day</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Results Display -->
+                    <div class="savings-results-panel">
+                        <div class="results-inner-card">
+                            <h4 class="results-title">Estimated Timeline</h4>
+
+                            <div class="timeline-stats-grid">
+                                <div class="timeline-stat-box">
+                                    <span class="stat-large text-wow" id="result-years">3.8</span>
+                                    <span class="stat-unit">Years</span>
+                                </div>
+                                <div class="timeline-stat-box">
+                                    <span class="stat-large" id="result-months">45.9</span>
+                                    <span class="stat-unit">Months</span>
+                                </div>
+                                <div class="timeline-stat-box">
+                                    <span class="stat-large" id="result-days">1,398</span>
+                                    <span class="stat-unit">Days</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-summary-message">
+                                <p id="savings-summary-text">By saving <strong>₹500</strong> every day, you will be able
+                                    to buy your Tiago.ev priced at <strong>₹6,99,000</strong> in about <strong>3 years
+                                        and 10 months</strong>!</p>
+                            </div>
+
+                            <div class="progress-milestone-wrapper">
+                                <div class="milestone-label-row">
+                                    <span>Savings Goal Progress</span>
+                                    <span id="milestone-percentage">0%</span>
+                                </div>
+                                <div class="milestone-progress-bar">
+                                    <div class="milestone-progress-fill" id="savings-progress-fill" style="width: 0%;">
+                                    </div>
+                                </div>
+                                <div class="milestones-markers">
+                                    <span>Start</span>
+                                    <span>50%</span>
+                                    <span>Ready to Drive</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: WOW Interiors Cabin Step-In Parallax Zoom -->
+    <section class="section interior-parallax-section" id="interior">
+        <div class="sticky-parallax-wrapper">
+            <div class="parallax-zoom-container">
+                <img src="assets/tiago_ev_interior_luxe.png" alt="Cabin lux zoom" id="cabin-parallax-img"
+                    class="cabin-zoom-img" loading="lazy" decoding="async"
+                    style="filter:saturate(0) brightness(0.88)">
+                <div class="zoom-glow-overlay"></div>
+            </div>
+
+            <div class="parallax-text-container">
+                <div class="parallax-slide-text scroll-reveal" id="cabin-text-1">
+                    <span class="section-tag">Step Inside Luxury</span>
+                    <h2>Premium Dual-Tone Theme</h2>
+                    <p>Encompass yourself in a modern dual-tone theme. Featuring the <strong>Fabricia Luxe
+                            Dashboard</strong> with a layered finish that feels premium at every touchpoint.</p>
+                </div>
+                <div class="parallax-slide-text scroll-reveal" id="cabin-text-2">
+                    <span class="section-tag">Tactile Control</span>
+                    <h2>Sportluxe Steering Wheel</h2>
+                    <p>Audio, telephony, and cruise buttons integrated onto a leather-wrapped sportluxe steering wheel.
+                        Accented with sleek satin chrome interior door pulls.</p>
+                </div>
+                <div class="parallax-slide-text scroll-reveal" id="cabin-text-3">
+                    <span class="section-tag">Eco Innovation</span>
+                    <h2>Cosmograin Eco Trims</h2>
+                    <p>Designed with eco-responsibility. Textured pillar and door panels sustainably crafted with
+                        <strong>20% recycled plastic components</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: WOW Tech and Comfort (Apple-Style Grid) -->
+    <section class="section tech-comfort-section" id="tech-comfort">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">03 / Connected Comfort</span>
+                <h2 class="section-title">WOW <span class="text-wow">Tech & Comfort</span></h2>
+                <p class="section-desc">Inside the Next Gen Tiago.ev, smart tech and thoughtful comforts make every
+                    drive feel quietly wow.</p>
+            </div>
+
+            <div class="grid grid-3-cols tech-grid">
+                <!-- Card 1 -->
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h4>Ultra View 26.03cm HD Touchscreen</h4>
+                    <p>Floating HD touchscreen infotainment with wireless Android Auto™ and Apple CarPlay™ for
+                        effortless, wire-free navigation and media controls.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <rect x="6" y="2" width="12" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h4>iRA.ev App & Smartwatch Connection</h4>
+                    <p>Digital Island Cluster combined with smartwatch syncing via the iRA.ev application, containing
+                        40+ connected car tracking features.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h4>Climate Comfort & Cooled Glovebox</h4>
+                    <p>Fully Automatic Temperature Control (FATC) keeps the front cozy, while rear AC vents circulate
+                        cooling. The chilled glovebox keeps drinks refreshing.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h4>Ergo Comfort Seats & 240L Boot</h4>
+                    <p>Premium melange fabric upholstery with ergo under-thigh support, height-adjustable driver seat,
+                        and a generous 240L trunk for gear.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <path d="M12 18h.01"></path>
+                        </svg>
+                    </div>
+                    <h4>Zipfast 65W Fast USB & PEPS</h4>
+                    <p>Hyper-fast 65W type C socket in front, dual smartphone storage deck, and Passive Entry Passive
+                        Start (PEPS) system for keyless entry and ignition.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon-wrapper">
+                        <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2"
+                            fill="none">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                    </div>
+                    <h4>Drive & Regenerative Modes</h4>
+                    <p>Switch dynamically between City and Sport driving profiles. Select from 4 multi-mode regen levels
+                        (Level 0 - 3) via the rotary selection knob.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: WOW Safety (Trust & Shield Layout) -->
+    <section class="section safety-section" id="safety">
+        <div class="safety-glow"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">04 / Shield Core</span>
+                <h2 class="section-title">WOW <span class="text-wow">Safety Standard</span></h2>
+                <p class="section-desc">Engineered to absorb and redirect impacts, ensuring peace of mind is standard on
+                    every road.</p>
+            </div>
+
+            <div class="safety-dashboard scroll-reveal">
+                <div class="safety-badge-container">
+                    <div class="shield-badge">
+                        <svg viewBox="0 0 24 24" width="64" height="64" stroke="currentColor" stroke-width="1.5"
+                            fill="none">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <span class="shield-title">360° PROTECTION</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-2-cols safety-grid">
+                    <div class="safety-card">
+                        <span class="safety-number">01</span>
+                        <h4>6 Airbags as Standard</h4>
+                        <p>Complete curtain, side, and front protection. Complemented by a high-strength 360° Impact
+                            Protection Body Structure designed for structural integrity.</p>
+                    </div>
+
+                    <div class="safety-card">
+                        <span class="safety-number">02</span>
+                        <h4>360° SVS Camera & Blind View</h4>
+                        <p>Get a virtual bird's-eye view of your surroundings during complex maneuvers. Blind view
+                            monitors project clear side video feeds during lane changes.</p>
+                    </div>
+
+                    <div class="safety-card">
+                        <span class="safety-number">03</span>
+                        <h4>ESP with Hill Hold Control</h4>
+                        <p>Electronic Stability Program with Traction Control manages wheel slip. Hill Hold locks brakes
+                            on inclines to prevent backward rollback.</p>
+                    </div>
+
+                    <div class="safety-card">
+                        <span class="safety-number">04</span>
+                        <h4>iTPMS & Sensor Automation</h4>
+                        <p>Smart tyre pressure alerts combined with automated rain-sensing wipers, automatic headlamps,
+                            and rigid ISOFIX child seat anchor mounts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Performance & Drivetrain Showcase -->
+    <section class="section performance-section" id="performance">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">05 / Architecture</span>
+                <h2 class="section-title">Performance & <span class="text-wow">WOW Charging</span></h2>
+                <p class="section-desc">Liquid-cooled Permanent Magnet Synchronous Motors that deliver instantaneous
+                    response and swift charging.</p>
+            </div>
+
+            <div class="performance-split scroll-reveal">
+                <!-- Dual specs comparative list -->
+                <div class="performance-card spec-card">
+                    <div class="card-glow-edge"></div>
+                    <div class="spec-badge">Drivetrain Specs</div>
+                    <h3>Engineered Power</h3>
+
+                    <div class="spec-stats-split-grid">
+                        <div class="split-column">
+                            <h5>Medium Range (24 kWh)</h5>
+                            <ul class="clean-specs-list">
+                                <li>Power: <strong>55 kW (74 HP)</strong></li>
+                                <li>Torque: <strong>114 Nm</strong></li>
+                                <li>0-60 km/h: <strong>5.7 seconds</strong></li>
+                                <li>ARAI Range: <strong>285 km</strong></li>
+                            </ul>
+                        </div>
+                        <div class="split-column border-left-divider">
+                            <h5>Light Range (19.2 kWh)</h5>
+                            <ul class="clean-specs-list font-muted-override">
+                                <li>Power: <strong>45 kW (60 HP)</strong></li>
+                                <li>Torque: <strong>110 Nm</strong></li>
+                                <li>0-60 km/h: <strong>6.2 seconds</strong></li>
+                                <li>ARAI Range: <strong>226 km</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ip67-mention">
+                        <span class="icon-ip67">✓</span> IP67 Ingress Protection for motor and battery against dust and
+                        water.
+                    </div>
+                </div>
+
+                <!-- Charging details -->
+                <div class="performance-card charging-card">
+                    <div class="card-glow-edge"></div>
+                    <div class="spec-badge badge-cyan">Charging Speeds</div>
+                    <h3>Enhanced Faster Charging</h3>
+
+                    <div class="charging-main-stat">
+                        <span class="stat-huge text-wow">+100 km</span>
+                        <span class="stat-huge-label">in just <strong>18 minutes</strong>*</span>
+                    </div>
+
+                    <div class="charging-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                                    fill="none">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                    <line x1="6" y1="12" x2="18" y2="12"></line>
+                                </svg>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>30 kW DC Fast Station (10% to 80%)</h5>
+                                <p>Recharges to 80% capacity in <strong>30-35 minutes</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                                    fill="none">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="timeline-content">
+                                <h5>7.2 kW AC Wall Box (10% to 100%)</h5>
+                                <p>Full charge inside <strong>2.6 - 3.5 hours</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video & Exploded View Tab Showcase -->
+            <div class="tech-visual-showcase scroll-reveal">
+                <div class="showcase-content">
+                    <h3>Liquid-Cooled Drivetrain Reveal</h3>
+                    <p>Watch the mechanical reveal video or toggle to inspect the highly detailed exploded architecture
+                        of the battery cells and motor components.</p>
+                    <div class="showcase-selector">
+                        <button class="showcase-tab active" data-tab="video">Drivetrain Reveal Video</button>
+                        <button class="showcase-tab" data-tab="exploded">Exploded Architecture</button>
+                    </div>
+                </div>
+                <div class="showcase-media-box">
+                    <div class="media-container active" id="showcase-video">
+                        <video src="assets/Car_animation_with_explosion_202605281842.mp4"
+                            autoplay loop muted playsinline preload="none"
+                            class="showcase-video-player"></video>
+                    </div>
+                    <div class="media-container" id="showcase-exploded">
+                        <img src="assets/A_highly_detailed,_realistic_exploded_202605281830.jpeg"
+                            alt="Exploded high voltage drivetrain architecture" class="showcase-image"
+                            loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Warranty Call-out Banner -->
+    <section class="warranty-section" id="warranty">
+        <div class="warranty-glow"></div>
+        <div class="container warranty-container scroll-reveal">
+            <div class="warranty-badge-outer">
+                <div class="warranty-badge">
+                    <span class="badge-num">LIFETIME</span>
+                    <span class="badge-lbl">WARRANTY</span>
+                </div>
+            </div>
+            <div class="warranty-content">
+                <h2>WOW <span class="text-wow">Confidence</span></h2>
+                <p class="warranty-headline">Driving into the electric era backed by unbeatable warranty coverage.</p>
+
+                <div class="warranty-cards">
+                    <div class="warranty-subcard border-wow">
+                        <h3>24 kWh HV Drivetrain</h3>
+                        <div class="warranty-period text-wow">LIFETIME</div>
+                        <p class="warranty-terms">HV Battery Pack & Motor Warranty (Unlimited kilometers for first
+                            owners private use)*</p>
+                    </div>
+                    <div class="warranty-subcard">
+                        <h3>19.2 kWh HV Drivetrain</h3>
+                        <div class="warranty-period">8 YEARS</div>
+                        <p class="warranty-terms">or 1,60,000 km standard coverage for the HV battery pack and motor
+                            (whichever occurs first)</p>
+                    </div>
+                </div>
+
+                <div class="warranty-note">
+                    *T&C apply. Lifetime battery warranty applies for 15 years from the date of first registration for
+                    private registrations. Subsequent ownership shifts to standard 8-year/1.6L km limits.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7.5: Interactive Features Explorer (Brochure Explored) -->
+    <section class="section features-explorer-section" id="features-explorer">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Brochure Directory</span>
+                <h2 class="section-title">WOW <span class="text-wow">Feature Explorer</span></h2>
+                <p class="section-desc">Explore the complete catalog of advanced features, comforts, and specifications
+                    direct from the official Tiago.ev brochure.</p>
+            </div>
+
+            <!-- Search and Tabs Control Panel -->
+            <div class="features-control-panel scroll-reveal">
+                <div class="search-wrapper">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"
+                        class="search-icon">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" id="feature-search"
+                        placeholder="Search features (e.g. airbags, charger, range, wheels)...">
+                </div>
+
+                <div class="features-tabs">
+                    <button type="button" class="feature-tab-btn active" data-category="all">All Features</button>
+                    <button type="button" class="feature-tab-btn" data-category="exterior">Exterior & Style</button>
+                    <button type="button" class="feature-tab-btn" data-category="interior">Interiors & Cabin</button>
+                    <button type="button" class="feature-tab-btn" data-category="tech">Tech & Comfort</button>
+                    <button type="button" class="feature-tab-btn" data-category="safety">Safety & Shield</button>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="features-grid scroll-reveal" id="features-grid">
+                <!-- ================= EXTERIOR ================= -->
+                <div class="feature-card" data-category="exterior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Exterior</span>
+                    <h4>Lux Beam LED Headlamps</h4>
+                    <p>Focussed projection visibility headlamps paired with signature LED DRLs that look modern from
+                        every angle.</p>
+                </div>
+
+                <div class="feature-card" data-category="exterior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Exterior</span>
+                    <h4>Halo Lightbar Connected Tail Lamps</h4>
+                    <p>Distinctive connected halo lightbar signature rear profile, leaving a lasting modern imprint
+                        behind you.</p>
+                </div>
+
+                <div class="feature-card" data-category="exterior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Exterior</span>
+                    <h4>R14 Hyperstyle Wheels</h4>
+                    <p>Sporty R14 hyperstyle wheels provide an athletic, aerodynamically optimized vehicle profile.</p>
+                </div>
+
+                <div class="feature-card" data-category="exterior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Exterior</span>
+                    <h4>Dual-Tone Black Roof</h4>
+                    <p>Sporty contrast jet-black roof structure that brings a bold, athletic presence to every glance.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-category="exterior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 22h20L12 2z"></path>
+                            <circle cx="12" cy="13" r="2"></circle>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Exterior</span>
+                    <h4>Shark Fin Antenna with GPS</h4>
+                    <p>Sleek aerodynamic fin antenna integrated with satellite GPS connectivity for style and navigation
+                        utility.</p>
+                </div>
+
+                <div class="feature-card" data-category="exterior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 10h-1.5c-1.38 0-2.5 1.12-2.5 2.5v1.5M6 10h1.5c1.38 0 2.5 1.12 2.5 2.5v1.5">
+                            </path>
+                            <rect x="2" y="14" width="20" height="8" rx="2"></rect>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Exterior</span>
+                    <h4>Cosmo Grain Arch Cladding</h4>
+                    <p>Cosmo Grain textured wheel arch claddings designed to guard panels and enhance the rugged stance.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-category="exterior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Exterior</span>
+                    <h4>Chrome Line Door Handles</h4>
+                    <p>Premium chrome line accents wrapped around the handles for a sophisticated, luxury styling.</p>
+                </div>
+
+                <!-- ================= INTERIORS ================= -->
+                <div class="feature-card" data-category="interior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 12h18M3 6h18M3 18h18"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Interiors</span>
+                    <h4>Fabricia Luxe Dashboard</h4>
+                    <p>Layered refined dashboard layout incorporating textured premium fabric materials that feel
+                        luxurious.</p>
+                </div>
+
+                <div class="feature-card" data-category="interior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 12h8M12 8v8"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Interiors</span>
+                    <h4>Sportluxe Steering Wheel</h4>
+                    <p>Premium leather-wrapped flat-bottom steering wheel with smart mounted audio and cruise controls.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-category="interior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Interiors</span>
+                    <h4>Premium Dual-Tone interior</h4>
+                    <p>Cohesive premium dual-tone cabin environment wrapping occupants in elegant comfort.</p>
+                </div>
+
+                <div class="feature-card" data-category="interior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"></path>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Interiors</span>
+                    <h4>Cosmograin Pillar Trims</h4>
+                    <p>Urban Cosmograin textured door and pillar panels sustainably built with 20% recycled plastic
+                        materials.</p>
+                </div>
+
+                <div class="feature-card" data-category="interior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <path d="M9 9h6v6H9z"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Interiors</span>
+                    <h4>Satin Chrome door pulls</h4>
+                    <p>Inner door pull handles finished in premium satin chrome that feel smooth and sophisticated.</p>
+                </div>
+
+                <div class="feature-card" data-category="interior">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                            <rect x="3" y="4" width="18" height="12" rx="2"></rect>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Interiors</span>
+                    <h4>Soft-Touch Door Armrests</h4>
+                    <p>All-door armrest panels finished in soft fabric cushioning for maximum passenger rest comfort.
+                    </p>
+                </div>
+
+                <!-- ================= TECH & COMFORT ================= -->
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>26.03cm HD Touchscreen</h4>
+                    <p>Floating HD touchscreen infotainment console with access to navigation and media on the go.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="6" y="2" width="12" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>New-Gen Digital Island Cluster</h4>
+                    <p>Clean driver information dashboard displaying range, battery status, speeds, and navigation cues.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>iRA.ev Connected Car Tech</h4>
+                    <p>Access vehicle locks, charge telemetry, geo-fencing, and 40+ connected features via smartwatch or
+                        app.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 19V5m-7 7h14"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>Fully Automatic Climate Control</h4>
+                    <p>FATC climate sensor automatically adjusts fan speeds and cooling to preserve target cabin
+                        temperature.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>Rotary Gear Selector Knob</h4>
+                    <p>Intuitive metallic gear selection knob for effortless switching between Neutral, Drive, and
+                        Reverse.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <path d="M9 17v-5H5v5h4zm10 0v-5h-4v5h4z"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>Ergo Seats with Melange Upholstery</h4>
+                    <p>Body-hugging seats with soft melange fabric and ergo under-thigh support for fatiguing road
+                        trips.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <line x1="9" y1="9" x2="15" y2="15"></line>
+                            <line x1="15" y1="9" x2="9" y2="15"></line>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>240L+ Deep Boot Space</h4>
+                    <p>Generously proportioned rear luggage compartment that easily fits suitcases, groceries, and
+                        travel gear.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12A10 10 0 0 1 12 2z">
+                            </path>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>Passive Entry Passive Start (PEPS)</h4>
+                    <p>Lock/unlock doors and start the motor keylessly with passive smart sensor detection.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 12a4 4 0 1 1 8 0H8z"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>Cooled Glovebox</h4>
+                    <p>Integrated air-conditioning duct feeds cooling into the glovebox to keep refreshments chilled.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>Zipfast 65W Type-C Charger</h4>
+                    <p>Hyper-fast dashboard 65W charging socket suitable for recharging power-demanding laptops and
+                        tablets.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 5v14M5 12h14"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>Rear AC Vents</h4>
+                    <p>Dedicated back-seat cooling vents for efficient, balanced cabin climate circulation.</p>
+                </div>
+
+                <div class="feature-card" data-category="tech">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Tech & Comfort</span>
+                    <h4>Electric Tailgate Release</h4>
+                    <p>Open the rear hatch from inside the cabin or via smart remote key button press.</p>
+                </div>
+
+                <!-- ================= SAFETY & SHIELD ================= -->
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>6 Airbags as Standard</h4>
+                    <p>Comprehensive protection with front, side, and curtain airbags standard across all variants.</p>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z">
+                            </path>
+                            <circle cx="12" cy="13" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>360° SVS Camera System</h4>
+                    <p>Virtual bird's-eye HD camera layout provides multiple 2D/3D views for hassle-free tight
+                        maneuvers.</p>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>Blind View Monitor</h4>
+                    <p>Dashboard screen displays live camera feed of side blind spots during turn signal activations.
+                    </p>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="3" x2="9" y2="21"></line>
+                            <line x1="15" y1="3" x2="15" y2="21"></line>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>360° Protection Body Structure</h4>
+                    <p>High-strength steel safety cage structure designed to absorb and redirect crash impacts.</p>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>ESP & Traction Control</h4>
+                    <p>Electronic Stability Program prevents wheel spin-outs and preserves vehicle course alignment.</p>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="18 15 12 9 6 15"></polyline>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>Hill Hold Control</h4>
+                    <p>Locks brake pressure automatically on slopes, preventing rollback as you shift to gas.</p>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                            <path d="M12 9v4"></path>
+                            <path d="M12 16v.01"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>i-High Beam Alert</h4>
+                    <p>Alerts driver when auto high-beams detect approaching headlamps to prevent oncoming glare.</p>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="M12 8v6"></path>
+                            <path d="M12 16v.01"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>IP67 Motor & Battery Shield</h4>
+                    <p>High ingress rating shields high voltage battery and motor from dust and deep water splashes.</p>
+                </div>
+
+                <div class="feature-card" data-category="safety">
+                    <div class="feature-card-glow"></div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 8v8M8 12h8"></path>
+                        </svg>
+                    </div>
+                    <span class="feature-tag">Safety & Shield</span>
+                    <h4>iTPMS Tyre Alert</h4>
+                    <p>Smart sensors detect variations in tyre pressures and alert the driver immediately on dashboard.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Minimal and Legal) -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="brand-text">TIAGO<span class="ev-badge">.ev</span></span>
+                    <p>Configured at Tata Passenger Electric Mobility digital showroom experience.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Showroom Sections</h5>
+                    <ul>
+                        <li><a href="#hero-scroll">Design Reveal</a></li>
+                        <li><a href="#showroom-section">Digital Customizer</a></li>
+                        <li><a href="#interior">Cabin Zoom</a></li>
+                        <li><a href="#performance">Power & Charging</a></li>
+                        <li><a href="#warranty">Warranty Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-cta-group">
+                    <h5>Own the WOW moment</h5>
+                    <div class="footer-buttons">
+                        <a href="https://ev.tatamotors.com/tiago/ev.html" class="btn btn-primary btn-book-now">Book Your
+                            Configured EV</a>
+                        <a href="the-next-gen-tiago-ev-brouchure.pdf" download="Next_Gen_Tiago_EV_Brochure.pdf"
+                            class="btn btn-outline" id="download-brochure">
+                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
+                                fill="none" class="icon-download">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download Spec Sheet
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="disclaimer">
+                    <strong>Disclaimer:</strong> Accessories/features shown may not be part of standard fitment. Values
+                    pertaining to boot space are measured as per VDA method. Smart watch, smart phone, and external
+                    charging cables are not part of vehicle accessories. Android Auto™ and Apple CarPlay™ are registered
+                    trademarks. ARAI range certified under standard testing conditions; actual real-world range will
+                    vary based on driving style, traffic, AC load, and weather conditions.
+                </p>
+                <div class="copyright">
+                    <p>&copy; 2026 Tata Passenger Electric Mobility. All rights reserved.</p>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Lead Modal -->
+    <div class="booking-modal-overlay" id="booking-modal">
+        <div class="booking-modal">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-header">
+                <h3>Book Your Custom <span class="text-wow">Tiago.ev</span></h3>
+                <p>Verify your details below. Your configured variant and color settings are already pre-loaded.</p>
+            </div>
+            <form class="booking-form" id="lead-form">
+                <div class="form-group">
+                    <label for="form-name">Full Name</label>
+                    <input type="text" id="form-name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="form-phone">Mobile Number</label>
+                    <input type="tel" id="form-phone" placeholder="+91 98765 43210" pattern="[0-9+\s\-]{10,15}"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="form-email">Email Address</label>
+                    <input type="email" id="form-email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="form-city">City</label>
+                        <input type="text" id="form-city" placeholder="Dehradun" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="form-variant">Selected Variant</label>
+                        <select id="form-variant" disabled>
+                            <option value="smart">Smart 19 (19.2 kWh)</option>
+                            <option value="pure-19">Pure+ 19 (19.2 kWh)</option>
+                            <option value="pure-24">Pure+ 24 (24.0 kWh)</option>
+                            <option value="creative">Creative+ 24 (24.0 kWh)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="form-color">Selected Color</label>
+                    <input type="text" id="form-color" readonly>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Confirm Booking & Get Deal Details</button>
+            </form>
+            <div class="form-success-message" id="form-success">
+                <div class="success-icon">✓</div>
+                <h4>Configuration Reserved!</h4>
+                <p>Thank you. An EV Specialist will contact you shortly to coordinate your test drive and verify pricing
+                    details.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
