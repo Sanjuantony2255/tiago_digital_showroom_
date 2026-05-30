@@ -474,6 +474,140 @@
         </div>
     </section>
 
+    <!-- Section 2.7: WOW EMI Calculator -->
+    <section class="section emi-section" id="emi-calculator">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Finance Calculator</span>
+                <h2 class="section-title">Your WOW <span class="text-wow">EMI Planner</span></h2>
+                <p class="section-desc">Estimate your monthly investments and customize your payment terms. Adjust your down payment, interest rate, and loan tenure below.</p>
+            </div>
+
+            <div class="emi-card scroll-reveal">
+                <div class="emi-split-grid">
+                    <!-- Left Column: Inputs -->
+                    <div class="emi-inputs-panel">
+                        <!-- Car Price (Auto-Synced & Editable) -->
+                        <div class="planner-group">
+                            <label for="emi-car-price">Vehicle Price (₹)</label>
+                            <div class="target-price-input-wrapper">
+                                <span class="currency-symbol">₹</span>
+                                <input type="number" id="emi-car-price" value="699000" min="100000" step="10000" class="planner-number-input">
+                            </div>
+                            <span class="planner-help-text">Can be edited manually or auto-syncs with showroom configuration.</span>
+                        </div>
+
+                        <!-- Down Payment -->
+                        <div class="planner-group">
+                            <div class="slider-label-row">
+                                <label for="emi-down-payment-range">Down Payment (₹)</label>
+                                <div class="savings-value-display">
+                                    <span class="currency-symbol">₹</span>
+                                    <input type="number" id="emi-down-payment-input" value="139800" min="0" class="planner-value-input" style="width: 120px;">
+                                </div>
+                            </div>
+                            <input type="range" id="emi-down-payment-range" min="50000" max="600000" value="139800" step="10000" class="planner-range-slider">
+                            <div class="slider-ticks">
+                                <span id="down-payment-min">₹50,000</span>
+                                <span id="down-payment-max">₹6,00,000</span>
+                            </div>
+                        </div>
+
+                        <!-- Interest Rate -->
+                        <div class="planner-group">
+                            <div class="slider-label-row">
+                                <label for="emi-interest-range">Annual Interest Rate (%)</label>
+                                <div class="savings-value-display">
+                                    <input type="number" id="emi-interest-input" value="8.5" min="5" max="20" step="0.1" class="planner-value-input" style="width: 60px;">
+                                    <span style="color: var(--accent); font-weight: 700; margin-left: 2px;">%</span>
+                                </div>
+                            </div>
+                            <input type="range" id="emi-interest-range" min="5" max="20" value="8.5" step="0.1" class="planner-range-slider">
+                            <div class="slider-ticks">
+                                <span>5%</span>
+                                <span>12.5%</span>
+                                <span>20%</span>
+                            </div>
+                        </div>
+
+                        <!-- Loan Tenure -->
+                        <div class="planner-group">
+                            <div class="slider-label-row">
+                                <label for="emi-tenure-range">Loan Tenure (Years)</label>
+                                <div class="savings-value-display">
+                                    <input type="number" id="emi-tenure-input" value="5" min="1" max="7" class="planner-value-input" style="width: 40px;">
+                                    <span style="color: var(--accent); font-weight: 700; margin-left: 2px;">Yrs</span>
+                                </div>
+                            </div>
+                            <input type="range" id="emi-tenure-range" min="1" max="7" value="5" step="1" class="planner-range-slider">
+                            <div class="slider-ticks">
+                                <span>1 Year</span>
+                                <span>4 Years</span>
+                                <span>7 Years</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Results Display -->
+                    <div class="emi-results-panel">
+                        <div class="results-inner-card">
+                            <h4 class="results-title">Calculated Monthly Payment</h4>
+                            <div class="emi-large-display">
+                                <span class="emi-currency">₹</span>
+                                <span class="emi-value text-wow" id="emi-monthly-val">10,258</span>
+                                <span class="emi-period">/ month</span>
+                            </div>
+
+                            <div class="emi-summary-stats">
+                                <div class="emi-stat-row">
+                                    <span class="emi-stat-lbl">Loan Amount (Principal)</span>
+                                    <strong id="emi-loan-amount">₹5,59,200</strong>
+                                </div>
+                                <div class="emi-stat-row">
+                                    <span class="emi-stat-lbl">Total Interest Payable</span>
+                                    <strong id="emi-total-interest">₹1,15,497</strong>
+                                </div>
+                                <div class="emi-stat-row total-row">
+                                    <span class="emi-stat-lbl">Total Amount Payable</span>
+                                    <strong id="emi-total-payable">₹6,74,697</strong>
+                                </div>
+                            </div>
+
+                            <!-- Payment Breakup Visual Bar -->
+                            <div class="emi-breakup-bar-wrapper">
+                                <div class="breakup-labels">
+                                    <span>Principal (<span id="principal-pct">83%</span>)</span>
+                                    <span>Interest (<span id="interest-pct">17%</span>)</span>
+                                </div>
+                                <div class="breakup-bar-bg">
+                                    <div class="breakup-bar-fill" id="emi-principal-fill" style="width: 83%;"></div>
+                                </div>
+                                <div class="breakup-legend">
+                                    <span class="legend-item"><span class="legend-color principal"></span>Principal</span>
+                                    <span class="legend-item"><span class="legend-color interest"></span>Interest</span>
+                                </div>
+                            </div>
+
+                            <!-- Smart Finance Tip (Matches Theme) -->
+                            <div class="emi-tip-box">
+                                <div class="tip-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                    </svg>
+                                </div>
+                                <div class="tip-content">
+                                    <p><strong>Smart Vibe Tip:</strong> Always invest 20% or above money as the downpayment and close the emi within 4 to 5 years otherwise you have to pay more money as Loan Interest to the bank</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Section 3: WOW Interiors Cabin Step-In Parallax Zoom -->
     <section class="section interior-parallax-section" id="interior">
         <div class="sticky-parallax-wrapper">
@@ -1362,6 +1496,7 @@
                 </p>
                 <div class="copyright">
                     <p>&copy; 2026 Tata Passenger Electric Mobility. All rights reserved.</p>
+                    <p class="creator-credit">Designed and Created From <a href="https://web7techsolutions.com" target="_blank" class="credit-link">Web7TechSolution By Sanju</a></p>
                     <div class="legal-links">
                         <a href="#">Privacy Policy</a>
                         <a href="#">Terms & Conditions</a>

@@ -589,6 +589,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     updateSavingsCalculations();
                 }
 
+                // Sync target price to EMI calculator
+                if (typeof syncCarPriceForEMI === "function") {
+                    syncCarPriceForEMI(specs.priceText);
+                }
+
                 // Update Customizer Variant title and price display
                 const customizerVariantTitle = document.getElementById("customizer-variant-title");
                 const customizerVariantPrice = document.getElementById("customizer-variant-price");
@@ -1260,4 +1265,174 @@ document.addEventListener("DOMContentLoaded", () => {
             priceDisplay.textContent = "₹" + currentTotalPrice.toLocaleString('en-IN');
         });
     });
+
+    // =========================================================================
+    //   EMI CALCULATOR LOGIC
+    // =========================================================================
+    const emiCarPrice = document.getElementById("emi-car-price");
+    const emiDownPaymentRange = document.getElementById("emi-down-payment-range");
+    const emiDownPaymentInput = document.getElementById("emi-down-payment-input");
+    const emiInterestRange = document.getElementById("emi-interest-range");
+    const emiInterestInput = document.getElementById("emi-interest-input");
+    const emiTenureRange = document.getElementById("emi-tenure-range");
+    const emiTenureInput = document.getElementById("emi-tenure-input");
+    
+    const emiMonthlyVal = document.getElementById("emi-monthly-val");
+    const emiLoanAmount = document.getElementById("emi-loan-amount");
+    const emiTotalInterest = document.getElementById("emi-total-interest");
+    const emiTotalPayable = document.getElementById("emi-total-payable");
+    
+    const emiPrincipalFill = document.getElementById("emi-principal-fill");
+    const principalPct = document.getElementById("principal-pct");
+    const interestPct = document.getElementById("interest-pct");
+    
+    const downPaymentMin = document.getElementById("down-payment-min");
+    const downPaymentMax = document.getElementById("down-payment-max");
+
+    function calculateEMI() {
+        if (!emiCarPrice || !emiDownPaymentInput || !emiInterestInput || !emiTenureInput) return;
+
+        const carPrice = parseFloat(emiCarPrice.value) || 0;
+        let downPayment = parseFloat(emiDownPaymentInput.value) || 0;
+        
+        // Clamp down payment to be less than vehicle price
+        if (downPayment >= carPrice) {
+            downPayment = Math.round(carPrice * 0.8);
+            emiDownPaymentInput.value = downPayment;
+            if (emiDownPaymentRange) emiDownPaymentRange.value = downPayment;
+        }
+
+        const loanAmount = Math.max(0, carPrice - downPayment);
+        const annualInterest = parseFloat(emiInterestInput.value) || 0;
+        const tenureYears = parseFloat(emiTenureInput.value) || 0;
+
+        if (loanAmount <= 0) {
+            updateEMIDisplay(0, 0, 0, 0);
+            return;
+        }
+
+        if (annualInterest <= 0 || tenureYears <= 0) {
+            updateEMIDisplay(0, loanAmount, 0, loanAmount);
+            return;
+        }
+
+        const monthlyInterest = annualInterest / 12 / 100;
+        const totalMonths = tenureYears * 12;
+
+        let emi = 0;
+        if (monthlyInterest === 0) {
+            emi = loanAmount / totalMonths;
+        } else {
+            emi = (loanAmount * monthlyInterest * Math.pow(1 + monthlyInterest, totalMonths)) / 
+                  (Math.pow(1 + monthlyInterest, totalMonths) - 1);
+        }
+
+        const totalPayable = emi * totalMonths;
+        const totalInterest = Math.max(0, totalPayable - loanAmount);
+
+        updateEMIDisplay(emi, loanAmount, totalInterest, totalPayable);
+    }
+
+    function updateEMIDisplay(emi, loanAmount, totalInterest, totalPayable) {
+        if (emiMonthlyVal) emiMonthlyVal.textContent = Math.round(emi).toLocaleString('en-IN');
+        if (emiLoanAmount) emiLoanAmount.textContent = "₹" + Math.round(loanAmount).toLocaleString('en-IN');
+        if (emiTotalInterest) emiTotalInterest.textContent = "₹" + Math.round(totalInterest).toLocaleString('en-IN');
+        if (emiTotalPayable) emiTotalPayable.textContent = "₹" + Math.round(totalPayable).toLocaleString('en-IN');
+
+        const total = loanAmount + totalInterest;
+        let pPct = 100;
+        let iPct = 0;
+        
+        if (total > 0) {
+            pPct = Math.round((loanAmount / total) * 100);
+            iPct = 100 - pPct;
+        }
+
+        if (principalPct) principalPct.textContent = `${pPct}%`;
+        if (interestPct) interestPct.textContent = `${iPct}%`;
+        if (emiPrincipalFill) emiPrincipalFill.style.width = `${pPct}%`;
+    }
+
+    window.syncCarPriceForEMI = function(priceText) {
+        const price = parseInt(priceText.replace(/[^0-9]/g, ''));
+        if (emiCarPrice) {
+            emiCarPrice.value = price;
+        }
+
+        // Adjust down payment slider bounds and defaults
+        if (emiDownPaymentRange) {
+            const minDP = Math.round(price * 0.1); // 10% min
+            const maxDP = Math.round(price * 0.9); // 90% max
+            const defaultDP = Math.round(price * 0.2); // 20% default
+
+            emiDownPaymentRange.min = minDP;
+            emiDownPaymentRange.max = maxDP;
+            emiDownPaymentRange.value = defaultDP;
+            
+            if (emiDownPaymentInput) emiDownPaymentInput.value = defaultDP;
+            
+            if (downPaymentMin) downPaymentMin.textContent = "₹" + minDP.toLocaleString('en-IN');
+            if (downPaymentMax) downPaymentMax.textContent = "₹" + maxDP.toLocaleString('en-IN');
+        }
+
+        calculateEMI();
+    }
+
+    if (emiDownPaymentRange && emiDownPaymentInput) {
+        emiDownPaymentRange.addEventListener("input", (e) => {
+            emiDownPaymentInput.value = e.target.value;
+            calculateEMI();
+        });
+        emiDownPaymentInput.addEventListener("input", (e) => {
+            let val = parseFloat(e.target.value) || 0;
+            emiDownPaymentRange.value = val;
+            calculateEMI();
+        });
+    }
+
+    if (emiInterestRange && emiInterestInput) {
+        emiInterestRange.addEventListener("input", (e) => {
+            emiInterestInput.value = e.target.value;
+            calculateEMI();
+        });
+        emiInterestInput.addEventListener("input", (e) => {
+            let val = parseFloat(e.target.value) || 0;
+            emiInterestRange.value = val;
+            calculateEMI();
+        });
+    }
+
+    if (emiTenureRange && emiTenureInput) {
+        emiTenureRange.addEventListener("input", (e) => {
+            emiTenureInput.value = e.target.value;
+            calculateEMI();
+        });
+        emiTenureInput.addEventListener("input", (e) => {
+            let val = parseFloat(e.target.value) || 0;
+            emiTenureRange.value = val;
+            calculateEMI();
+        });
+    }
+
+    if (emiCarPrice) {
+        emiCarPrice.addEventListener("input", (e) => {
+            const price = parseFloat(e.target.value) || 0;
+            
+            // Dynamically adjust down payment slider bounds based on manual price input
+            if (emiDownPaymentRange) {
+                const minDP = Math.round(price * 0.1); // 10% min
+                const maxDP = Math.round(price * 0.9); // 90% max
+                
+                emiDownPaymentRange.min = minDP;
+                emiDownPaymentRange.max = maxDP;
+                
+                if (downPaymentMin) downPaymentMin.textContent = "₹" + minDP.toLocaleString('en-IN');
+                if (downPaymentMax) downPaymentMax.textContent = "₹" + maxDP.toLocaleString('en-IN');
+            }
+            calculateEMI();
+        });
+    }
+
+    // Trigger initial calculation
+    calculateEMI();
 });
