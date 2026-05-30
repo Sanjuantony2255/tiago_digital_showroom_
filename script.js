@@ -1163,31 +1163,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Initial triggers
-    resizeCanvas();
-    handleScrollAnimations();
-    
-    // Trigger initial trim color setup and color filter initialization
-    const initialTrimRadio = document.querySelector('input[name="trim-select"]:checked');
-    let colorClicked = false;
-    if (initialTrimRadio) {
-        const chips = document.querySelectorAll(".showroom-chip");
-        const detectClick = () => { colorClicked = true; };
-        chips.forEach(c => c.addEventListener("click", detectClick));
-        
-        initialTrimRadio.dispatchEvent(new Event('change'));
-        
-        chips.forEach(c => c.removeEventListener("click", detectClick));
-    }
-    
-    // If no color chip was clicked during the trim initialization (meaning the default color is allowed),
-    // click the active chip once to ensure the initial color filters are applied.
-    if (!colorClicked) {
-        const activeColorChip = document.querySelector(".showroom-chip.active");
-        if (activeColorChip) {
-            activeColorChip.click();
-        }
-    }
+    // Initial triggers block moved to the bottom of the file to guarantee correct definition sequence
+
 
     // =========================================================================
     //   NEW CUSTOMIZER TABS NAVIGATION
@@ -1263,6 +1240,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             priceDisplay.textContent = "₹" + currentTotalPrice.toLocaleString('en-IN');
+
+            // Sync updated configured price with other calculators
+            const targetPriceInput = document.getElementById("savings-target-price");
+            if (targetPriceInput) {
+                targetPriceInput.value = currentTotalPrice;
+                if (typeof updateSavingsCalculations === "function") {
+                    updateSavingsCalculations();
+                }
+            }
+
+            if (typeof syncCarPriceForEMI === "function") {
+                syncCarPriceForEMI("₹" + currentTotalPrice);
+            }
         });
     });
 
@@ -1388,6 +1378,16 @@ document.addEventListener("DOMContentLoaded", () => {
             emiDownPaymentRange.value = val;
             calculateEMI();
         });
+        emiDownPaymentInput.addEventListener("blur", (e) => {
+            let val = parseFloat(e.target.value) || 0;
+            const minDP = parseFloat(emiDownPaymentRange.min) || 0;
+            const maxDP = parseFloat(emiDownPaymentRange.max) || 0;
+            if (val < minDP) val = minDP;
+            if (val > maxDP) val = maxDP;
+            emiDownPaymentInput.value = Math.round(val);
+            emiDownPaymentRange.value = val;
+            calculateEMI();
+        });
     }
 
     if (emiInterestRange && emiInterestInput) {
@@ -1400,6 +1400,16 @@ document.addEventListener("DOMContentLoaded", () => {
             emiInterestRange.value = val;
             calculateEMI();
         });
+        emiInterestInput.addEventListener("blur", (e) => {
+            let val = parseFloat(e.target.value) || 0;
+            const minInt = parseFloat(emiInterestRange.min) || 5;
+            const maxInt = parseFloat(emiInterestRange.max) || 20;
+            if (val < minInt) val = minInt;
+            if (val > maxInt) val = maxInt;
+            emiInterestInput.value = val.toFixed(1);
+            emiInterestRange.value = val;
+            calculateEMI();
+        });
     }
 
     if (emiTenureRange && emiTenureInput) {
@@ -1409,6 +1419,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         emiTenureInput.addEventListener("input", (e) => {
             let val = parseFloat(e.target.value) || 0;
+            emiTenureRange.value = val;
+            calculateEMI();
+        });
+        emiTenureInput.addEventListener("blur", (e) => {
+            let val = Math.round(parseFloat(e.target.value) || 0);
+            const minTen = parseInt(emiTenureRange.min) || 1;
+            const maxTen = parseInt(emiTenureRange.max) || 7;
+            if (val < minTen) val = minTen;
+            if (val > maxTen) val = maxTen;
+            emiTenureInput.value = val;
             emiTenureRange.value = val;
             calculateEMI();
         });
@@ -1426,6 +1446,42 @@ document.addEventListener("DOMContentLoaded", () => {
                 emiDownPaymentRange.min = minDP;
                 emiDownPaymentRange.max = maxDP;
                 
+                let currentDP = parseFloat(emiDownPaymentInput.value) || 0;
+                if (currentDP < minDP) currentDP = minDP;
+                if (currentDP > maxDP) currentDP = maxDP;
+                
+                emiDownPaymentInput.value = currentDP;
+                emiDownPaymentRange.value = currentDP;
+                
+                if (downPaymentMin) downPaymentMin.textContent = "₹" + minDP.toLocaleString('en-IN');
+                if (downPaymentMax) downPaymentMax.textContent = "₹" + maxDP.toLocaleString('en-IN');
+            }
+            calculateEMI();
+        });
+
+        emiCarPrice.addEventListener("blur", (e) => {
+            let price = parseFloat(e.target.value) || 0;
+            const minPrice = 100000;
+            if (price < minPrice) {
+                price = minPrice;
+                emiCarPrice.value = price;
+            }
+            
+            // Re-sync downpayment bounds and default to 20% if it was out of bounds
+            const minDP = Math.round(price * 0.1);
+            const maxDP = Math.round(price * 0.9);
+            
+            if (emiDownPaymentRange) {
+                emiDownPaymentRange.min = minDP;
+                emiDownPaymentRange.max = maxDP;
+                
+                let currentDP = parseFloat(emiDownPaymentInput.value) || 0;
+                if (currentDP < minDP || currentDP > maxDP) {
+                    currentDP = Math.round(price * 0.2); // default to 20%
+                }
+                emiDownPaymentInput.value = currentDP;
+                emiDownPaymentRange.value = currentDP;
+                
                 if (downPaymentMin) downPaymentMin.textContent = "₹" + minDP.toLocaleString('en-IN');
                 if (downPaymentMax) downPaymentMax.textContent = "₹" + maxDP.toLocaleString('en-IN');
             }
@@ -1435,4 +1491,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Trigger initial calculation
     calculateEMI();
+
+    // =========================================================================
+    //   INITIAL ACTIONS & TRIGGERS (Evaluated after all logic is declared)
+    // =========================================================================
+    resizeCanvas();
+    handleScrollAnimations();
+    
+    // Trigger initial trim color setup and color filter initialization
+    const initialTrimRadio = document.querySelector('input[name="trim-select"]:checked');
+    let colorClicked = false;
+    if (initialTrimRadio) {
+        const chips = document.querySelectorAll(".showroom-chip");
+        const detectClick = () => { colorClicked = true; };
+        chips.forEach(c => c.addEventListener("click", detectClick));
+        
+        initialTrimRadio.dispatchEvent(new Event('change'));
+        
+        chips.forEach(c => c.removeEventListener("click", detectClick));
+    }
+    
+    // If no color chip was clicked during the trim initialization (meaning the default color is allowed),
+    // click the active chip once to ensure the initial color filters are applied.
+    if (!colorClicked) {
+        const activeColorChip = document.querySelector(".showroom-chip.active");
+        if (activeColorChip) {
+            activeColorChip.click();
+        }
+    }
 });
