@@ -32,15 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "pure-grey": {
             name: "Pure Grey",
-            filter: "grayscale(1) brightness(0.95) contrast(1.02)"
+            filter: "brightness(0.95) contrast(1.02)"
         },
         "daytona-grey": {
             name: "Daytona Grey",
-            filter: "grayscale(1) brightness(0.55) contrast(1.2)"
+            filter: "brightness(0.75) contrast(1.1)"
         },
         "pristine-white": {
             name: "Pristine White",
-            filter: "grayscale(1) brightness(1.65) contrast(0.72)"
+            filter: "brightness(1.15) contrast(0.95)"
         }
     };
 
@@ -63,9 +63,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Preload all 240 frames once (shared by Hero canvas & Showroom 360 viewer)
     function preloadFrames() {
+        function checkCompletion() {
+            if (loadedCount === TOTAL_FRAMES) {
+                imagesPreloaded = true;
+                if (loaderElement) loaderElement.classList.add("fade-out");
+                resizeCanvas();
+                handleScrollAnimations();
+            }
+        }
+
         for (let i = 1; i <= TOTAL_FRAMES; i++) {
             const img = new Image();
-            img.src = `public/images/herosection/ezgif-frame-${pad(i, 3)}.jpg`;
+            
             img.onload = () => {
                 loadedCount++;
 
@@ -76,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Draw first frame immediately as soon as it loads — canvas is ready
                 if (i === 1 && canvas && ctx) {
+                    resizeCanvas();
                     drawImageProp(ctx, img);
                     // Apply initial color filter based on active chip
                     const activeCard = document.querySelector(".showroom-color-card.active");
@@ -84,9 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (initConfig) {
                         let f = initConfig.filter;
                         if (initColorKey === "dehradun-dew") {
-                            f = "grayscale(1) sepia(0.4) hue-rotate(90deg) saturate(0.6) brightness(1.05)";
-                        } else if (!f.includes("grayscale(1)")) {
-                            f = "grayscale(1) " + f;
+                            f = "sepia(0.4) hue-rotate(90deg) saturate(0.6) brightness(1.05)";
+                        } else {
+                            f = f.replace("grayscale(1) ", "");
                         }
                         canvas.style.filter = f;
                     }
@@ -111,18 +121,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     drawImageProp(ctx, img);
                 }
 
-                if (loadedCount === TOTAL_FRAMES) {
-                    imagesPreloaded = true;
-                    if (loaderElement) loaderElement.classList.add("fade-out");
-                    handleScrollAnimations();
-                }
+                checkCompletion();
             };
+
             img.onerror = () => {
                 loadedCount++;
-                if (loadedCount === TOTAL_FRAMES) {
-                    imagesPreloaded = true;
+                if (loaderFill) {
+                    loaderFill.style.width = `${(loadedCount / TOTAL_FRAMES) * 100}%`;
                 }
+                checkCompletion();
             };
+
+            img.src = `public/images/herosection/ezgif-frame-${pad(i, 3)}.jpg`;
             preloadedImages.push(img);
         }
     }
@@ -164,6 +174,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const imgWidth = img.naturalWidth || 1200;
         const imgHeight = img.naturalHeight || 675;
         
+        if (window.innerWidth <= 768) {
+            // Mobile: simulate object-fit: contain so the car isn't cropped at the sides
+            const r = Math.min(canvasWidth / imgWidth, canvasHeight / imgHeight);
+            const nw = imgWidth * r;
+            const nh = imgHeight * r;
+            const cx = (canvasWidth - nw) * 0.5;
+            const cy = (canvasHeight - nh) * 0.5;
+            
+            context.clearRect(0, 0, canvasWidth, canvasHeight);
+            context.drawImage(img, 0, 0, imgWidth, imgHeight, cx, cy, nw, nh);
+            return;
+        }
+        
         const r = Math.min(canvasWidth / imgWidth, canvasHeight / imgHeight);
         let nw = imgWidth * r;
         let nh = imgHeight * r;
@@ -204,15 +227,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("resize", resizeCanvas);
     if (canvas) resizeCanvas();
 
-    // Apply initial desaturation to interior images immediately on load
-    // This hides the green-screen background before any chip click fires
+    // Ensure interior images are in full color on load
     (function applyInitialInteriorFilter() {
         const interiorImgs = [
             document.getElementById("showroom-interior-img"),
             document.getElementById("cabin-parallax-img")
         ];
         interiorImgs.forEach(el => {
-            if (el) el.style.filter = "saturate(0) brightness(0.88)";
+            if (el) el.style.filter = "none";
         });
     })();
 
@@ -278,10 +300,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (config) {
                     let filterString = config.filter;
                     if (colorKey === "dehradun-dew") {
-                        // Dehradun Dew on the hero canvas: normalize to greyscale then tint mint-green
-                        filterString = "grayscale(1) sepia(0.4) hue-rotate(90deg) saturate(0.6) brightness(1.05)";
-                    } else if (filterString !== "none" && !filterString.includes("grayscale(1)")) {
-                        filterString = "grayscale(1) " + filterString;
+                        filterString = "sepia(0.4) hue-rotate(90deg) saturate(0.8) brightness(1.05)";
+                    } else {
+                        filterString = filterString.replace("grayscale(1) ", "");
                     }
                     canvas.style.filter = filterString;
                 }
@@ -844,28 +865,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         setTimeout(() => {
                             let filterString = config.filter;
                             if (item.isInterior) {
-                                // Interior images: always kill the green-screen background
-                                // using saturate(0) → makes interior look dark and natural
-                                // Then optionally re-add a very subtle color hint from selected paint
-                                if (colorKey === "pure-grey" || colorKey === "daytona-grey" || colorKey === "pristine-white") {
-                                    // Neutral colors: just desaturate the interior naturally
-                                    filterString = "saturate(0) " + config.filter;
-                                } else {
-                                    // Chromatic colors: desaturate then apply a 20% color overlay feel
-                                    // We use a lighter sepia+hue approach so interior stays dark/natural
-                                    const baseDesaturate = "saturate(0) brightness(0.9)";
-                                    const colorHint = config.filter
-                                        .replace("sepia", "sepia")
-                                        .replace(/saturate\([^)]+\)/, "saturate(0.35)")
-                                        .replace(/brightness\([^)]+\)/, "brightness(1.0)");
-                                    filterString = baseDesaturate + " " + colorHint;
-                                }
+                                // Interior images: keep their natural colors!
+                                filterString = "none";
                             } else if (item.isGreenBase) {
-                                // Hero canvas: normalize with grayscale then apply color
+                                // Hero canvas: keep in color
                                 if (colorKey === "dehradun-dew") {
-                                    filterString = "grayscale(1) sepia(0.4) hue-rotate(90deg) saturate(0.6) brightness(1.05)";
-                                } else if (!filterString.includes("grayscale(1)")) {
-                                    filterString = "grayscale(1) " + filterString;
+                                    filterString = "sepia(0.4) hue-rotate(90deg) saturate(0.8) brightness(1.05)";
+                                } else {
+                                    filterString = filterString.replace("grayscale(1) ", "");
                                 }
                             }
                             item.el.style.filter = filterString;

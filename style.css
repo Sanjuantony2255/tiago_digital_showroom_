@@ -2125,15 +2125,32 @@ a {
 @media (max-width: 1024px) {
     .showroom-wrapper {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
     
     .showroom-visual-panel {
-        position: relative;
-        top: 0;
+        position: sticky;
+        top: 64px;
+        z-index: 10;
+        background: var(--bg-secondary);
+        padding: 16px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         max-width: 700px;
         margin: 0 auto;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #showroom-exterior-img,
+    #showroom-interior-img {
+        max-height: 28vh;
+        width: auto;
+        margin: 0 auto;
+        display: block;
+        object-fit: contain;
     }
     
     .showroom-config-panel {
@@ -2191,13 +2208,27 @@ a {
     body {
         font-size: 15px;
     }
+
+    .hero-scroll-container {
+        height: 250vh; /* Shorter scroll height for mobile touch responsiveness */
+    }
+
+    .scroll-slide {
+        justify-content: flex-start;
+        padding-top: 10vh;
+    }
+    
+    #slide-1 {
+        justify-content: flex-start;
+        padding-top: 15vh;
+    }
     
     .scroll-slide h1.slide-title {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
     
     .scroll-slide h2.slide-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .section-title {
@@ -2315,6 +2346,43 @@ a {
     
     .form-row {
         grid-template-columns: 1fr;
+    }
+
+    .trim-card {
+        padding: 12px 16px;
+    }
+    
+    .trim-name {
+        font-size: 0.95rem;
+    }
+    
+    .trim-price-label strong {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .timeline-stat-box {
+        padding: 12px 16px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+    
+    .timeline-stat-box .stat-large {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+        order: 2;
+    }
+    
+    .timeline-stat-box .stat-unit {
+        order: 1;
     }
 }
 
